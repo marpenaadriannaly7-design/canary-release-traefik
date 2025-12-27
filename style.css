@@ -126,3 +126,37 @@ body {
   color: #fff;
   text-decoration: none;
 }
+
+
+/* CONSULTATION SYSTEM */
+.consultation {
+  padding: 50px 0;
+  background: #ffffff;
+  text-align: center;
+}
+
+.consultation form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.consultation input,
+.consultation select,
+.consultation textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.consultation textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+#confirmation {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #1a3c6e;
+}

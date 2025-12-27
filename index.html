@@ -83,6 +83,41 @@
     </div>
   </section>
 
+<!-- Consultation Request System -->
+<section id="consultation" class="consultation">
+  <div class="container">
+    <h2>Request a Financial Consultation</h2>
+    <p>
+      Please provide your details and briefly describe your financial concern.
+      Our consultant will review your request.
+    </p>
+
+    <form id="consultationForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <select id="service" required>
+        <option value="">Select Type of Consultation</option>
+        <option>Budget Planning</option>
+        <option>Investment Advice</option>
+        <option>Debt Management</option>
+        <option>Business Financial Planning</option>
+      </select>
+
+      <textarea
+        id="message"
+        placeholder="Briefly describe your financial concern"
+        required>
+      </textarea>
+
+      <button type="submit" class="btn">Request Consultation</button>
+    </form>
+
+    <p id="confirmation"></p>
+  </div>
+</section>
+
+
   <!-- Footer -->
   <footer id="contact" class="footer">
     <div class="container">
