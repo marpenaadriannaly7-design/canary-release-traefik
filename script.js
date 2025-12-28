@@ -32,3 +32,12 @@ document.getElementById("consultationForm").addEventListener("submit", function 
 
   document.getElementById("consultationForm").reset();
 });
+function validateEmail(email) {
+  return email.includes("@");
+}
+
+if (typeof module !== "undefined") {
+  module.exports = { validateEmail };
+}
+
+

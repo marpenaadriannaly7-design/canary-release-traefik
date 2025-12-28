@@ -1,0 +1,27 @@
+{
+  "name": "desikuwebpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "admin.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marpenaadriannaly7-design/DesikuWebpage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marpenaadriannaly7-design/DesikuWebpage/issues"
+  },
+  "homepage": "https://github.com/marpenaadriannaly7-design/DesikuWebpage#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
