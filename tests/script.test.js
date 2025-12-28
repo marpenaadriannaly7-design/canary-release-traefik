@@ -1,4 +1,4 @@
-const { validateEmail } = require("../script");
+const { validateEmail } = require("../script.js");
 
 test("valid email passes validation", () => {
   expect(validateEmail("test@example.com")).toBe(true);
