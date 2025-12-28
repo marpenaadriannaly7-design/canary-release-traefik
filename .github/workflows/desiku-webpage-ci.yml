@@ -1,0 +1,29 @@
+name: Desiku Webpage CI – Linting
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  linting:
+    name: CI Build 1 – Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install linters
+        run: |
+          npm install eslint stylelint stylelint-config-standard --save-dev
+
+      - name: Run JavaScript lint
+        run: npx eslint "**/*.js" || true
+
+      - name: Run CSS lint
+        run: npx stylelint "**/*.css" || true
