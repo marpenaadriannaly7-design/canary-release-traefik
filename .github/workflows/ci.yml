@@ -10,36 +10,20 @@ jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Jest unit tests with coverage
-        run: npm run coverage
+      - run: npm install
+      - run: npm run coverage   # Jest unit tests & coverage
 
   e2e-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Playwright browsers
-        run: npx playwright install
-
-      - name: Run Playwright E2E tests
-        run: npm run test:e2e
+      - run: npm install
+      - run: npx playwright install
+      - run: npm run test:e2e  # Playwright E2E tests

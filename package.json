@@ -10,8 +10,7 @@
   "test": "jest",
   "coverage": "jest --coverage --coverageReporters=text-summary",
   "test:e2e": "npx playwright test"
-}
-,
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marpenaadriannaly7-design/DesikuWebpage.git"

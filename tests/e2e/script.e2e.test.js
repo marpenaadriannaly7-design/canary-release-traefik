@@ -1,4 +1,3 @@
-// Playwright E2E test
 const { test, expect } = require('@playwright/test');
 const { validateEmail } = require('../../script.js');
 
