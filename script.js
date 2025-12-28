@@ -12,21 +12,23 @@ document.getElementById("consultationForm").addEventListener("submit", function 
     return;
   }
 
-  const consultationRequest = {
-    name: name,
-    email: email,
-    service: service,
-    message: message,
-    date: new Date().toLocaleString()
+  const newRequest = {
+    id: Date.now(),
+    name,
+    email,
+    service,
+    message,
+    date: new Date().toLocaleString(),
+    contactHistory: []
   };
 
-  localStorage.setItem(
-    "lastConsultation",
-    JSON.stringify(consultationRequest)
-  );
+  const existing = JSON.parse(localStorage.getItem("consultations")) || [];
+  existing.push(newRequest);
+
+  localStorage.setItem("consultations", JSON.stringify(existing));
 
   document.getElementById("confirmation").innerText =
-    "Thank you. Your consultation request has been submitted successfully. Our consultant will contact you within 24 hours.";
+    "Thank you. Your consultation request has been submitted successfully.";
 
   document.getElementById("consultationForm").reset();
 });

@@ -1,22 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const requestsDiv = document.getElementById("requests");
+  const container = document.getElementById("requests");
+  const consultations = JSON.parse(localStorage.getItem("consultations")) || [];
 
-  const storedRequest = localStorage.getItem("lastConsultation");
-
-  if (!storedRequest) {
-    requestsDiv.innerHTML = "<p>No consultation requests found.</p>";
+  if (consultations.length === 0) {
+    container.innerHTML = "<p>No consultation requests found.</p>";
     return;
   }
 
-  const request = JSON.parse(storedRequest);
-
-  requestsDiv.innerHTML = `
+  container.innerHTML = consultations.map((c, index) => `
     <div class="request-card">
-      <p><strong>Name:</strong> ${request.name}</p>
-      <p><strong>Email:</strong> ${request.email}</p>
-      <p><strong>Service:</strong> ${request.service}</p>
-      <p><strong>Message:</strong><br>${request.message}</p>
-      <p><strong>Date:</strong> ${request.date}</p>
+      <h3>Client ${index + 1}</h3>
+      <p><strong>Name:</strong> ${c.name}</p>
+      <p><strong>Email:</strong> ${c.email}</p>
+      <p><strong>Service:</strong> ${c.service}</p>
+      <p><strong>Message:</strong><br>${c.message}</p>
+      <p><strong>Submitted:</strong> ${c.date}</p>
+
+      <h4>Contact History</h4>
+      <ul>
+        ${
+          c.contactHistory.length === 0
+            ? "<li>No contact history yet.</li>"
+            : c.contactHistory.map(h => `<li>${h.date}: ${h.note}</li>`).join("")
+        }
+      </ul>
+
+      <textarea id="note-${c.id}" placeholder="Add contact note"></textarea>
+      <button onclick="addContact(${c.id})">Add Contact Note</button>
     </div>
-  `;
+  `).join("");
 });
+
+function addContact(clientId) {
+  const consultations = JSON.parse(localStorage.getItem("consultations")) || [];
+  const noteInput = document.getElementById(`note-${clientId}`);
+  const note = noteInput.value.trim();
+
+  if (!note) return;
+
+  const client = consultations.find(c => c.id === clientId);
+
+  client.contactHistory.push({
+    date: new Date().toLocaleString(),
+    note
+  });
+
+  localStorage.setItem("consultations", JSON.stringify(consultations));
+  location.reload();
+}
