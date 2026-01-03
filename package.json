@@ -7,10 +7,10 @@
     "test": "tests"
   },
   "scripts": {
-  "test": "jest",
-  "coverage": "jest --coverage --coverageReporters=text-summary",
-  "test:e2e": "npx playwright test"
-},
+    "test": "jest",
+    "coverage": "jest --coverage --coverageReporters=text-summary",
+    "test:e2e": "npx playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marpenaadriannaly7-design/DesikuWebpage.git"
@@ -26,5 +26,8 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "jest": "^30.2.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }

@@ -1,4 +1,3 @@
-// Jest unit test
 const { validateEmail } = require('../../script.js');
 
 test('valid email passes validation', () => {

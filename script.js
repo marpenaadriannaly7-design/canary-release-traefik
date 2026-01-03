@@ -64,3 +64,11 @@ if (typeof document !== "undefined") {
 if (typeof module !== "undefined") {
   module.exports = { validateEmail };
 }
+
+fetch("/version")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("version").innerText =
+      `Version: ${data.version} (${data.status})`;
+  });
+
